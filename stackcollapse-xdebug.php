@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 #
 # Copyright 2018 Miriam Lauter (lauter.miriam@gmail.com).  All rights reserved.
 #
