@@ -151,7 +151,11 @@ if ($do_time) {
             addCurrentStackToStacks($current_stack, $time - $prev_start_time, $stacks);
             array_pop($current_stack);
         } else {
-            $func_name = $parts[5];
+            if (in_array($parts[5], ["require", "require_once", "include", "include_once"])) {
+                $func_name = $parts[5] . "(" . $parts[7] . ")";
+            } else {
+                $func_name = $parts[7] . ":" . $parts[5];
+            }
 
             if (!empty($current_stack)) {
                 addCurrentStackToStacks($current_stack, $time - $prev_start_time, $stacks);
